@@ -5,9 +5,9 @@ import java.util.*;
 public class java {
     public static void main(String[] args) {
 
-        Map<String, Integer> map = new LinkedHashMap<>();
+        Map<String, Integer> map = new LinkedHashMap<>();   ////LinkedHashMap有序
         String str = "this is a test, and that is also a test!";
-        String arrstr[] = str.split(",|\\s|!");
+        String arrstr[] = str.split(",|\\s|!");  //这样划分后会出现一个空串""，该空串占用内存空间，但"".length()=0
 
         for (String s : arrstr) {
 

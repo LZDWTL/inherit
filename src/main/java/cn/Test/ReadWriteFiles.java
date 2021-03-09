@@ -6,6 +6,7 @@ import java.io.*;
  * @author 10237
  * @date 2021-03-01 15:33
  */
+
 public class ReadWriteFiles {
     public static void main(String[] args) {
         FileReader fileReader = null;
@@ -13,9 +14,9 @@ public class ReadWriteFiles {
         BufferedReader bufferedReader = null;
         BufferedWriter bufferedWriter = null;
         try {
-            fileReader = new FileReader("D:\\临时文件夹\\蓝桥视频及Markdown笔记\\视频\\2021-02-24（视频）\\尝试.txt");
+            fileReader = new FileReader("D:\\临时文件夹\\蓝桥视频及Markdown笔记\\视频\\2021-02-24（视频）\\02-24.md");
 
-            fileWriter = new FileWriter("D:\\临时文件夹\\蓝桥视频及Markdown笔记\\视频\\2021-02-24（视频）\\复制t文件.txt");
+            fileWriter = new FileWriter("D:\\临时文件夹\\蓝桥视频及Markdown笔记\\视频\\2021-02-24（视频）\\复制文件.md");
 
             bufferedReader = new BufferedReader(fileReader);
             bufferedWriter = new BufferedWriter(fileWriter);
@@ -41,11 +42,17 @@ public class ReadWriteFiles {
             String readline = null;
             while ((readline = bufferedReader.readLine()) != null) {
                 bufferedWriter.write(readline);
-                readline = bufferedReader.readLine();
+
+                /**
+                 * 这里不需要下面这一行，多写的话会导致文件内容跳行显示
+                 */
+                //readline = bufferedReader.readLine();
+
+
                 bufferedWriter.newLine();
 
             }
-           // bufferedWriter.flush();
+            bufferedWriter.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
